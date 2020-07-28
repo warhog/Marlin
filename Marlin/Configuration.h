@@ -499,9 +499,9 @@
   //#define DEFAULT_Kd 440
 
   // Artillery Sidewinder X1
-  #define DEFAULT_Kp 10.85 
-  #define DEFAULT_Ki 0.75 
-  #define DEFAULT_Kd 39.12
+  #define DEFAULT_Kp 14.92
+  #define DEFAULT_Ki 1.37
+  #define DEFAULT_Kd 40.58
 
 #endif // PIDTEMP
 
@@ -551,9 +551,9 @@
   //#define DEFAULT_bedKd 1675.16
 
   // Artillery Sidewinder X1
-  #define DEFAULT_bedKp 83.48  
-  #define DEFAULT_bedKi 8.15 
-  #define DEFAULT_bedKd 213.72
+  #define DEFAULT_bedKp 51.77
+  #define DEFAULT_bedKi 7.49
+  #define DEFAULT_bedKd 238.55
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -740,7 +740,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.121, 80.121, 399.778, 445 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.121, 80.121, 399.778, 494 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -966,7 +966,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { 28, -33, -1.35 }
+#define NOZZLE_TO_PROBE_OFFSET { 28, -33, -2.40 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1034,13 +1034,13 @@
  * These options are most useful for the BLTouch probe, but may also improve
  * readings with inductive probes and piezo sensors.
  */
-//#define PROBING_HEATERS_OFF       // Turn heaters off when probing
+#define PROBING_HEATERS_OFF       // Turn heaters off when probing
 #if ENABLED(PROBING_HEATERS_OFF)
   //#define WAIT_FOR_BED_HEATER     // Wait for bed to heat back up between probes (to improve accuracy)
 #endif
 //#define PROBING_FANS_OFF          // Turn fans off when probing
 //#define PROBING_STEPPERS_OFF      // Turn steppers off (unless needed to hold position) when probing
-//#define DELAY_BEFORE_PROBING 200  // (ms) To prevent vibrations from triggering piezo sensors
+#define DELAY_BEFORE_PROBING 200  // (ms) To prevent vibrations from triggering piezo sensors
 
 // For Inverting Stepper Enable Pins (Active Low) use 0, Non Inverting (Active High) use 1
 // :{ 0:'Low', 1:'High' }
@@ -1261,7 +1261,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 5
+  #define GRID_MAX_POINTS_X 4
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
@@ -1505,7 +1505,6 @@
  *    P2  Raise the nozzle by Z-park amount, limited to Z_MAX_POS.
  */
 #define NOZZLE_PARK_FEATURE
-
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z_raise }
   #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }
